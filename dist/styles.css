@@ -125,14 +125,13 @@ h1#location-and-date__location{
     font-size: 0;
     align-items: center;
     gap: 2.5rem;
-    padding: 1rem;
-    border: 1px solid green;
 }
 
 .weather__temperature__icon-container{
     text-align: center;
-    width: 8rem;
+    width: 7rem;
 }
+
 
 
 #weather__temperature__value{
@@ -151,6 +150,8 @@ h1#location-and-date__location{
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+    padding: 2rem;
+    /* margin-top: 1rem; */
 }
 
 .weather__details-container > div{
@@ -196,7 +197,7 @@ h1#location-and-date__location{
 
 /* forecast */
 .forecast{
-    margin-top: 3rem;
+    margin-top: 2rem;
     width: 100%;
 }
 
