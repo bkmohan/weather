@@ -25,21 +25,34 @@ body{
 /* Search bar and Unit settings */
 .search-and-setting{
     width: 100%;
+    padding-bottom: 1rem;
     display: flex;
-    justify-content: center ;
+    justify-content: right ;
     align-items: center;
 }
 
 .search-and-setting__search-bar{
-    width: 100%;
+    position: relative;
+    width: clamp(130px, 18%, 250px);
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: left;
     margin-right: 1.1rem;
 }
 
+
+.location-error{
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 2rem;
+    padding-left: 0.5rem;
+    font-size: 0.7rem;
+}
+
+
 #search-bar{
-    width: clamp(130px, 20%, 250px);
+    width: 100%;
     height: 32px;
     padding: 0 clamp(12px, 2%, 15px);
     font-size: 1em;
@@ -197,7 +210,6 @@ h1#location-and-date__location{
 }
 
 
-
 .forecast-header__daily, .forecast-header__hourly{
     font-size: 1.2rem;
     padding: .5rem;
@@ -206,20 +218,21 @@ h1#location-and-date__location{
     cursor: pointer;
 }
 
+
 .header-selected{
     border-bottom: 4px solid white;
 }
 
 .forecast__daily{
-    display: none;
     width: 100%;
-    /* display: flex; */
+    display: flex;
     justify-content: space-between;
 }
 
 .forecast__hourly{
     display: block;
 }
+
 
 .forecast__hourly_container{
     width: 100%;
@@ -324,3 +337,10 @@ h1#location-and-date__location{
 
 
 
+.inactive{
+    display: none;
+}
+
+.dot-active{
+    background-color: white;
+}
