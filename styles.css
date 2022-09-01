@@ -313,7 +313,6 @@ h1#location-and-date__location{
     }
     .forecast__daily, .forecast__hourly_container{
         flex-direction: column;
-        border: 1px solid cyan;
     }
 
     .forecast__daily_day, .forecast__hourly_day{
@@ -321,8 +320,6 @@ h1#location-and-date__location{
         gap: 0.8rem;
         flex-direction: row;
         justify-content: space-around;
-
-        border: 1px solid darkmagenta;
     }
 
     .forecast__daily_day .day, .forecast__hourly_day .hour{
