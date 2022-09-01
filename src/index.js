@@ -178,6 +178,7 @@ function updateWeatherData(data){
         currentTemperature.innerHTML = getRelvantTemp(data.current.temp);
         currentSummary.textContent = capitalize(data.current.weather[0].description);
         weatherIcon.src = getIcon(data.current.weather[0].icon)
+        weatherIcon.title = capitalize(data.current.weather[0].description);
 
         feelsLike.innerHTML = getRelvantTemp(data.current.feels_like);
         precipitate.textContent = data.hourly[0].pop * 100 + ' %';
@@ -192,7 +193,8 @@ function updateWeatherData(data){
             dayForecast.querySelector('.forecast__daily_high').innerHTML = getRelvantTemp(data.daily[i+1].temp.max);
             dayForecast.querySelector('.forecast__daily_low').innerHTML = getRelvantTemp(data.daily[i+1].temp.min);
             dayForecast.querySelector('.forecast__icon').src = getIcon(data.daily[i+1].weather[0].icon)
-            //TODO icon
+            dayForecast.querySelector('.forecast__icon').title = capitalize(data.daily[i+1].weather[0].description);
+            
         }
 
         for(let i = 0; i < 24; i++){
@@ -201,7 +203,7 @@ function updateWeatherData(data){
             hourForecast.querySelector('.hour').textContent = format(hour, 'h:mm aaa')
             hourForecast.querySelector('.forecast__hourly_temperature').innerHTML = getRelvantTemp(data.hourly[i+1].temp);
             hourForecast.querySelector('.forecast__icon').src = getIcon(data.hourly[i+1].weather[0].icon)
-            //TODO icon
+            hourForecast.querySelector('.forecast__icon').title = capitalize(data.hourly[i+1].weather[0].description);
         }
         storeData(data.location, tempUnit)
     }
