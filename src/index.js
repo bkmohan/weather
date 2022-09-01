@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import { generateHourlyElements } from "./hourly_weather";
-import { cachedData, storeData } from "./init";
+import { cachedData, getLocation, storeData } from "./init";
 import { getWeatherData } from "./weather";
 
 
@@ -217,8 +217,11 @@ async function init(){
         if(initData.unit){
             tempSwitch.checked = initData.unit == 'F' ? true : false;
         }
-        updateWeatherData(WeatherData)
     }
+    else{
+        WeatherData = await getWeatherData('bangalore');
+    }
+    updateWeatherData(WeatherData);
 }
 
 init()
