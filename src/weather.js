@@ -17,12 +17,10 @@ export async function getWeatherData(location){
         data.current = weatherData.current
         data.hourly = weatherData.hourly
         data.daily = weatherData.daily
-        
-        console.log(data)
+
         return data
     }
     catch{
-        console.log('its in cateh')
         return ''
     }
     

@@ -13,6 +13,7 @@ const leftScrollArrow = document.querySelector('#arrow-left');
 const rightScrollArrow = document.querySelector('#arrow-right');
 const searchLocation = document.querySelector('#search-icon');
 const tempSwitch = document.querySelector('#unit-toogle');
+const locationQueryInput = document.querySelector('#search-bar');
 
 const location = document.querySelector('#location-and-date__location');
 const currentDate = document.querySelector('#location-and-date__current-date');
@@ -93,15 +94,16 @@ tempSwitch.addEventListener('change', (e) => {
     }
 })
 
+locationQueryInput.addEventListener('keyup', (e) => {
+    if(e.key === 'Enter'){
+        queryWeatherData();
+    }
+})
 
-// let currentDateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-// let currentTimeOptions = { hour: 'numeric', minute: '2-digit' };
-// let dailyDayOptions = { weekday: 'long' };
-// let dailyDayOptions = { weekday: 'long' };
 
 
 async function queryWeatherData(event){
-    let locationQuery = document.querySelector('#search-bar').value
+    let locationQuery = locationQueryInput.value
     WeatherData = await getWeatherData(locationQuery);
     updateWeatherData(WeatherData)
 }
@@ -171,7 +173,7 @@ function updateWeatherData(data){
 
         location.textContent = data.location;
         let date = new Date(data.current.dt * 1000)
-        currentDate.textContent = format(date, "EEEE, do MMM 'yy");
+        currentDate.textContent = format(date, "EEEE, do MMM yy");
         currentTime.textContent = format(date, 'h:mm aaa');
         currentTemperature.innerHTML = getRelvantTemp(data.current.temp);
         currentSummary.textContent = capitalize(data.current.weather[0].description);
